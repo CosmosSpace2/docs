@@ -6,6 +6,8 @@ slug: /validator-manual
 
 # Run Validator - Manual setup
 ### 1. Install node (`lavad`) & Join network {#lavad}
+Running as a validator requires a Lava Node running, Please refer to [our guide for joining **Mainnet**](mainnet) for details.
+
 Running as a validator requires a Lava Node running, Please refer to [our guide for joining **Testnet**](testnet) for details.
 
 ### 2. Prepare an account & Fund it {#account}
@@ -57,7 +59,7 @@ $current_lavad_binary tx staking create-validator \
     --amount="50000000ulava" \
     --pubkey=$($current_lavad_binary tendermint show-validator --home "$HOME/.lava/") \
     --moniker="<<moniker_node>>" \
-    --chain-id=lava-testnet-2 \
+    --chain-id=lava-mainnet-1 \
     --commission-rate="0.10" \
     --commission-max-rate="0.20" \
     --commission-max-change-rate="0.01" \

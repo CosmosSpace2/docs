@@ -1,5 +1,5 @@
 ---
-slug: /provider-improve-service
+slug: /provider-improve-service-testnet
 title: Rewards / Service
 ---
 
@@ -104,7 +104,7 @@ It is possible to turn on debug logs and see the blocks advancing.
 The latest block is exported in prometheus, and also uploaded on chain. 
 You can compare the latest block on your provider to other providers, a useful way to do this is filter provider_latest_block_report and compare your results to others:
 ```bash
-lavap test events 2000 --event lava_provider_latest_block_report --node https://public-rpc-mainnet.lavanet.xyz:443/
+lavap test events 2000 --event lava_provider_latest_block_report --node https://public-rpc-testnet2.lavanet.xyz:443/
 ```
 
 ##### Low-Score Causes
@@ -163,13 +163,13 @@ It is possible to monitor this event via info webpage or the following commands 
 
 ⌨️ `command` when being reported before getting jailed:
 ```bash
-lavap test events 2000 --event lava_provider_reported --node https://public-rpc-mainnet.lavanet.xyz:443/
+lavap test events 2000 --event lava_provider_reported --node https://public-rpc-testnet2.lavanet.xyz:443/
 ```
 a group of reports can lead to being jailed.
 
 ⌨️ `command` when the blockchain's criteria for jail are met:
 ```bash
-lavap test events 2000 --event lava_provider_jailed --node https://public-rpc-mainnet.lavanet.xyz:443/
+lavap test events 2000 --event lava_provider_jailed --node https://public-rpc-testnet2.lavanet.xyz:443/
 ```
 <br />
 
@@ -191,7 +191,7 @@ Jail reports contain additional info on the report reason and they can be either
 
 In addition, the reports contain an exact time tag, so the provider can check the events:
 ```bash
-lavap test events 2000 --event lava_provider_reported --node https://public-rpc-mainnet.lavanet.xyz:443/
+lavap test events 2000 --event lava_provider_reported --node https://public-rpc-testnet2.lavanet.xyz:443/
 ```
 <br />
 
