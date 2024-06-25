@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-# Join testnet - Manual setup
+# Join Mainnet - Manual setup
 
 This page will walk you through the manual installation of the node and joining the network.
 

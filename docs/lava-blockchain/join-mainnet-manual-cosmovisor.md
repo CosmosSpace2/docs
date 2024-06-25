@@ -5,7 +5,7 @@ title: Option A - With Cosmovisor
 ---
 import RoadmapItem from '@site/src/components/RoadmapItem';
 
-# Join testnet - Manual setup with Cosmovisor
+# Join Mainnet - Manual setup with Cosmovisor
 ## Prerequisites
 
 1. Verify [hardware requirements](reqs) are met
