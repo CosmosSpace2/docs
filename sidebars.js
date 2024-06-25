@@ -507,10 +507,10 @@ const sidebars = {
             'provider-testnet/lavavisor-testnet/lavavisor-services-testnet',
           ]
         },
-        'provider-testnet/provider-tls',
-        'provider-testnet/provider-improve-service',
         'provider-testnet/provider-setup',
-        'provider-testnet/provider-features'
+        'provider-testnet/provider-features',
+        'provider-testnet/provider-tls',
+        'provider-testnet/provider-improve-service'
       ]
     },
     {
