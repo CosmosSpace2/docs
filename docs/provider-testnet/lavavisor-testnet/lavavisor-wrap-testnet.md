@@ -1,5 +1,5 @@
 ---
-slug: /lavavisor-wrap
+slug: /lavavisor-wrap-testnet
 title: Process Wrapper
 ---
 
@@ -20,7 +20,7 @@ The key distinction between the two is that `lavavisor wrap` validates Golang in
 
 :::tip
 
-Please make sure you are using the right `chainId` this document was written during testnet, and the active `chainId` was `lava-mainnet-1` at time of composition.
+Please make sure you are using the right `chainId` this document was written during testnet, and the active `chainId` was `lava-testnet-2` at time of composition.
 
 :::
 
@@ -42,7 +42,7 @@ If you're using [`lavavisor pod`](#-lavavisor-pod) this command is unnecesary an
 **Example usage:**
 
 ```bash
-lavavisor init --auto-download --chain-id lava-mainnet-1
+lavavisor init --auto-download --chain-id lava-testnet-2
 ```
 
 <br />
@@ -54,7 +54,7 @@ The `wrap` command doesn't require a config for itself, it just takes the lavap 
 **Example usage:**
 
 ```bash
-lavavisor wrap --cmd 'lavap rpcprovider ./config/my_rpcprovider_config.yml --from <account> --log_level debug --geolocation 1 --chain-id lava-mainnet-1' --auto-download
+lavavisor wrap --cmd 'lavap rpcprovider ./config/my_rpcprovider_config.yml --from <account> --log_level debug --geolocation 1 --chain-id lava-testnet-2' --auto-download
 ```
 
 <br />
@@ -72,7 +72,7 @@ When running this command in a lightweight pod environment that lacks Golang or 
 **Example usage:**
 
 ```bash
-lavavisor pod --cmd 'lavap rpcprovider ./config/my_rpcprovider_config.yml --from <account> --log_level debug --geolocation 1 --chain-id lava-mainnet-1'
+lavavisor pod --cmd 'lavap rpcprovider ./config/my_rpcprovider_config.yml --from <account> --log_level debug --geolocation 1 --chain-id lava-testnet-2'
 ```
 
 <br />
@@ -97,5 +97,5 @@ Lavavisor doesn't check if the password is correct; it will try to use it when s
 ### Example Use ⚙️
 
 ```bash
-lavavisor wrap --cmd 'lavap rpcprovider ./config/my_rpcprovider_config.yml --geolocation 1 --log_level debug --from prod_client --chain-id lava-mainnet-1 --keyring-backend os --node "<local/public node url>"' --auto-download --node "<local/public node url>" --chain-id lava-mainnet-1 --enter-keyring-password
+lavavisor wrap --cmd 'lavap rpcprovider ./config/my_rpcprovider_config.yml --geolocation 1 --log_level debug --from prod_client --chain-id lava-testnet-2 --keyring-backend os --node "<local/public node url>"' --auto-download --node "<local/public node url>" --chain-id lava-testnet-2 --enter-keyring-password
 ```

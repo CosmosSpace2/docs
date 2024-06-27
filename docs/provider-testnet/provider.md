@@ -1,12 +1,16 @@
 ---
 sidebar_position: 1
-slug: /provider
+slug: /provider-testnet
 ---
 
 import RoadmapItem from '@site/src/components/RoadmapItem';
 
 # Become a Provider
 Welcome to the Lava network's provider introduction. In this page, you'll learn about the role of providers in the Lava network, as well as the necessary steps to get started as one.
+
+:::info want to be a testnet Provider? ✍️
+To get the initial testnet LAVA stake, read the [Provider Incubation program details](https://lavanet.notion.site/Lava-Testnet-Providers-Incubation-Program-2d45589294b84976843fd55569f8be87) 📖
+:::
 
 ## **Providers in Lava's Protocol**
 
@@ -23,7 +27,7 @@ graph LR
 To join the Lava network as a provider, follow these steps:
 
 1. Ensure your Relay Chain RPC Nodes are operational and meet the required specifications.
-2. Stake LAVA and run Lava’s lightweight Provider process, as detailed in our **[Provider Setup](docs/provider/provider-setup.md)** guide.
+2. Stake LAVA and run Lava’s lightweight Provider process, as detailed in our **[Provider Setup](provider-setup-testnet)** guide.
 
 :::info Want to learn more?
 Learn more by reading our [litepaper](https://lavanet.xyz)
@@ -77,22 +81,22 @@ curl -X 'GET' \
 ### Querying Available APIs and Chains {#chains}
 
 
-To obtain a list of available APIs and chains, [query all chain specs](https://public-rpc-mainnet.lavanet.xyz/rest/lavanet/lava/spec/show_all_chains) or use the following CLI commands for a detailed list:
+To obtain a list of available APIs and chains, [query all chain specs](https://public-rpc-testnet2.lavanet.xyz/rest/lavanet/lava/spec/show_all_chains) or use the following CLI commands for a detailed list:
 
 
 ```bash
 curl -X 'GET' \
-  'https://public-rpc-mainnet.lavanet.xyz/rest/lavanet/lava/spec/show_all_chains' \
+  'https://public-rpc-testnet2.lavanet.xyz/rest/lavanet/lava/spec/show_all_chains' \
   -H 'accept: application/json' | jq
 ```
 
 Alternatively,
 ```bash
-lavap q spec list-spec --node https://public-rpc-mainnet.lavanet.xyz:443/rpc/
+lavap q spec list-spec --node https://public-rpc-testnet2.lavanet.xyz:443/rpc/
 ```
 
 
 ## Next step: Setup a Provider
 
 When you're ready, join **as a provider**:
-[<RoadmapItem icon="🧑‍⚖️" title="Power as a Provider" description="Provide node data, earn rewards"/>](/provider-setup)
+[<RoadmapItem icon="🧑‍⚖️" title="Power as a Provider" description="Provide node data, earn rewards"/>](/provider-setup-testnet)

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-slug: /provider-features
+slug: /provider-features-testnet
 title: Features
 ---
 
@@ -222,10 +222,10 @@ lavap tx pairing stake-provider "ETH1" \
     --from "my_account_name" \
     --provider-moniker "your-moniker" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 Do note the required addition of **`,archive,debug`** in each of the endpoints that support it if several exist. Setting these in a transaction replaces any existing endpoints, so make sure to give the full list of endpoints.

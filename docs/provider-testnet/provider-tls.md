@@ -1,5 +1,5 @@
 ---
-slug: /provider-tls
+slug: /provider-tls-testnet
 title: TLS Setup
 ---
 
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 # Provider TLS Setup Guide
 
 :::caution
-All providers on `lava-mainnet-1` must use a domain name and TLS (1.3). You must have a domain name to continue. If you have not already, please take a moment to purchase one! You can find cheap top-level domains [here](https://www.namecheap.com/) or [here](https://tld-list.com/).
+All providers on `lava-testnet-2` must use a domain name and TLS (1.3). You must have a domain name to continue. If you have not already, please take a moment to purchase one! You can find cheap top-level domains [here](https://www.namecheap.com/) or [here](https://tld-list.com/).
 :::
 
 ## 📊 Diagram
@@ -301,7 +301,7 @@ screen -S eth-provider
 
 # This will take us to a separate terminal where we can start the provider process:
 
-lavap rpcprovider eth-provider.yml --from your_key_name_here --geolocation 1 --chain-id lava-mainnet-1 --log_level debug
+lavap rpcprovider eth-provider.yml --from your_key_name_here --geolocation 1 --chain-id lava-testnet-2 --log_level debug
 ```
 Press `CTRL+ad` to detach from the `eth-provider` screen. <br />
 ⏫ To start the Lava provider process
@@ -310,13 +310,13 @@ screen -S lava-provider
 
 # This will take us to a separate terminal where we can start the provider process:
 
-lavap rpcprovider lava-provider.yml --from your_key_name_here --geolocation 1 --chain-id lava-mainnet-1 --log_level debug
+lavap rpcprovider lava-provider.yml --from your_key_name_here --geolocation 1 --chain-id lava-testnet-2 --log_level debug
 ```
 
 Some notes:
 * `--from` should be followed by the key name of your funded account that you will use to stake your provider
 * `--log_level debug` gives us verbose output so we can diagnose any issues that may arise
-* `--chain-id` may or may not be necessary, depending upon your setup, but we can default to `--lava-mainnet-1`
+* `--chain-id` may or may not be necessary, depending upon your setup, but we can default to `--lava-testnet-2`
 * `--node` may or may not be necessary
 
 :::caution

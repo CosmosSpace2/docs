@@ -3,7 +3,7 @@ slug: /badge-server
 title: Badge Server
 ---
 
-# Badge Server
+# Badge Server on Lava Testnet
 
 ## Overview 🔎
 

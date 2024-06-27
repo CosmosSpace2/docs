@@ -350,7 +350,7 @@ const sidebars = {
         },
        {
         type: 'category', 
-        label: '📦 SDK',
+        label: '📦 SDK on Lava Testnet',
         collapsible: true,
         collapsed: true,
         link: {
@@ -422,7 +422,21 @@ const sidebars = {
       items: [
         {
           type: 'category', 
-          label: 'Join testnet',
+          label: 'Join Mainnet',
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'lava-blockchain/join-mainnet'
+          },
+          items: [
+            'lava-blockchain/join-mainnet-manual-cosmovisor',
+            'lava-blockchain/join-mainnet-manual'
+          ]
+        },
+        {
+          type: 'category', 
+          label: 'Join Testnet',
           collapsible: true,
           collapsed: true,
           link: {
@@ -434,13 +448,12 @@ const sidebars = {
             'lava-blockchain/join-testnet-manual'
           ]
         },
-        'validator/validator-manual',
-        'validator/validator-rejoin'
+        'validator/validator-manual'
       ]
     },
     {
       type: 'category', 
-      label: 'Providers 📡',
+      label: 'Providers Mainnet 📡',
       collapsible: true,
       collapsed: true,
       link: {
@@ -467,6 +480,37 @@ const sidebars = {
         'provider/provider-features',
         'provider/provider-tls',
         'provider/provider-improve-service'
+      ]
+    },
+    {
+      type: 'category', 
+      label: 'Providers Testnet',
+      collapsible: true,
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'provider-testnet/provider'
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Lavavisor',
+          collapsible: true,
+          collapsed: true,
+          description: 'lavavisor',
+          link: {
+            type: 'doc',
+            id: 'provider-testnet/lavavisor-testnet/lavavisor',
+          },
+          items: [
+            'provider-testnet/lavavisor-testnet/lavavisor-wrap-testnet',
+            'provider-testnet/lavavisor-testnet/lavavisor-services-testnet',
+          ]
+        },
+        'provider-testnet/provider-setup',
+        'provider-testnet/provider-features',
+        'provider-testnet/provider-tls',
+        'provider-testnet/provider-improve-service'
       ]
     },
     {

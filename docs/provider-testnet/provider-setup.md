@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-slug: /provider-setup
+slug: /provider-setup-testnet
 title: Setup
 ---
 
@@ -9,13 +9,13 @@ import TabItem from '@theme/TabItem';
 
 :::warning
 
-With the launch of `lava-mainnet-1`, aspects of our provider setup have changed. TLS Certificates are now a required part of Provider setup. [Lavavisor](/lavavisor) is now the recommended route for running the provider process.
+With the launch of `lava-testnet-2`, aspects of our provider setup have changed. TLS Certificates are now a required part of Provider setup. [Lavavisor](/lavavisor-testnet) is now the recommended route for running the provider process.
 
 :::
 
 # Provider Setup
 
-After you have read the [Provider intro](/provider), This guide is designed to help node runners and DevOps professionals configure a multi-chain network provider, which supports various blockchain networks and their respective API interfaces. We'll walk you through the necessary steps to create a configuration file that covers multiple chains and API interfaces, and provide a brief background on providers and the stake command.
+After you have read the [Provider intro](/provider-testnet), This guide is designed to help node runners and DevOps professionals configure a multi-chain network provider, which supports various blockchain networks and their respective API interfaces. We'll walk you through the necessary steps to create a configuration file that covers multiple chains and API interfaces, and provide a brief background on providers and the stake command.
 
 ## **Overview**
 
@@ -33,7 +33,7 @@ In this guide, we'll create a configuration file that includes multiple chains (
 ## Step 1: Setup TLS
 As part of good security practice, Lava protocol communicates with end-to-end encryption between providers and consumers of RPC. This requires some additional configuration steps on a provider, namely, the setup of TLS certification with a certification authority.
 
-❗❗ If you already use a **TLS Certificate signed by a Certifiying Authority**, you can continue onto step 2. Otherwise, you may want to check out our guide on [setting up TLS for Lava Providers](/provider-tls).
+❗❗ If you already use a **TLS Certificate signed by a Certifiying Authority**, you can continue onto step 2. Otherwise, you may want to check out our guide on [setting up TLS for Lava Providers](/provider-tls-testnet).
 
 ## Step 2: Run RPCProvider process
 
@@ -50,7 +50,7 @@ lavap rpcprovider [config-file] || { {listen-host:listen-port spec-chain-id api-
 Configuration varies per chain. Some chains have steeper configuration requirements than others. If you're unsure, please visit the [chain page](/chains) of the specific endpoints you're attempting to setup and view our `Run an RPC Node` guide for that chain. 
 :::
 :::info 
-For advanced configuration such as **authentication**, header **forwarding**, configurable **node-timeout**, see [Provider Features](/provider-features)
+For advanced configuration such as **authentication**, header **forwarding**, configurable **node-timeout**, see [Provider Features](/provider-features-testnet)
 :::
 
 You can either provide a single configuration file (YAML) or specify one or more endpoint configurations as command line arguments.
@@ -65,7 +65,7 @@ If no arguments are provided, the default configuration file is used. All config
 
 - **`--geolocation`** (required): Geolocation to run from (e.g., **`1`**)
 - **`--from`** (required): Account name to use (e.g., **`alice`**)
-- **`--chain-id`**: Lava Network chain ID (e.g.: **`lava-mainnet-1`**)
+- **`--chain-id`**: Lava Network chain ID (e.g.: **`lava-testnet-2`**)
 - **`--pprof-address`**: pprof server address, used for code profiling (default: **`""`**)
 - **`--cache`**: Address for a cache server to improve performance (default: **`""`**)
 - **`--parallel-connections`**: Number of parallel connections (default: **`chainproxy.NumberOfParallelConnections`**)
@@ -117,7 +117,7 @@ endpoints:
 ```
 
 :::tip
-If you're using `nginx` or another proxy as is recommended in our [TLS setup guide](/provider-tls), you will need to add `disable-tls: true` to each endpoint specified. This allows `nginx` to handle TLS directly. 
+If you're using `nginx` or another proxy as is recommended in our [TLS setup guide](/provider-tls-testnet), you will need to add `disable-tls: true` to each endpoint specified. This allows `nginx` to handle TLS directly. 
 :::
 ### More Examples
 
@@ -137,7 +137,7 @@ since we haven't staked yet we need to provide the command with the endpoints we
 lavap test rpcprovider --from {WALLET} --endpoints "{ENDPOINTS}"
 
 # Example: checking if your provider, is staked correctly and listening on all staked services
-# lavap test rpcprovider --from provider1_us --node https://public-rpc-mainnet.lavanet.xyz:443/rpc/
+# lavap test rpcprovider --from provider1_us --node https://public-rpc-testnet2.lavanet.xyz:443/rpc/
 
 # Expected output:
 # ...logs...
@@ -158,7 +158,7 @@ lavap test rpcprovider --from {WALLET} --endpoints "{ENDPOINTS}"
 lavap test rpcprovider --from {WALLET} --endpoints "{ENDPOINTS}"`
 
 # Example: checking your provider that is not staked yet, or when you want to add a new chain support
-# lavap test rpcprovider --from provider1_us --endpoints "provider-public-grpc:port,jsonrpc,ETH1 provider-public-grpc:port,rest,LAV1" --node https://public-rpc-mainnet.lavanet.xyz:443/rpc/ 
+# lavap test rpcprovider --from provider1_us --endpoints "provider-public-grpc:port,jsonrpc,ETH1 provider-public-grpc:port,rest,LAV1" --node https://public-rpc-testnet2.lavanet.xyz:443/rpc/ 
 
 # Expected output:
 # ...logs...
@@ -233,15 +233,15 @@ Use the optional `--provider` flag to define a different address that will be us
 - **`--from`** - The account to be used for the provider staking (e.g., **`my_account`**).
 - **`--provider-moniker`** - Provider’s public name
 - **`--keyring-backend`** - A keyring-backend of your choosing (e.g., **`test`**).
-- **`--chain-id`** - The chain_id of the network (e.g., **`lava-mainnet-1`**).
+- **`--chain-id`** - The chain_id of the network (e.g., **`lava-testnet-2`**).
 - **`--gas`** - The gas limit for the transaction (e.g., **`"auto"`**).
 - **`--gas-adjustment`** - The gas adjustment factor (e.g., **`"1.5"`**).
-- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-mainnet.lavanet.xyz:443/rpc/`**).
+- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-testnet2.lavanet.xyz:443/rpc/`**).
 - **`--provider`** - The provider's operational address (address used to operate the provider process, default is vault address).
 
 ### Stake Examples
 
-#### Lava Mainnet in US (with specified validator)
+#### Lava Testnet in US (with specified validator)
 
 ```bash
 lavap tx pairing stake-provider LAV1 \
@@ -251,10 +251,10 @@ lavap tx pairing stake-provider LAV1 \
     --from "my_account_name" \
     --provider-moniker "your-moniker" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 #### Ethereum Mainnet in US (without specified validator)
@@ -267,10 +267,10 @@ lavap tx pairing stake-provider "ETH1" \
     --from "my_account_name" \
     --provider-moniker "your-moniker" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 #### Ethereum Mainnet in US And Europe (multiple endpoints)
@@ -281,10 +281,10 @@ lavap tx pairing stake-provider "ETH1" \
     --from "my_account_name" \
     --provider-moniker "your-moniker" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 #### Ethereum Globally Load Balanced Array of Nodes
@@ -296,10 +296,10 @@ lavap tx pairing stake-provider "ETH1" \
     --from "my_account_name" \
     --provider-moniker "your-moniker" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 #### Cosmos Hub Testnet in US
@@ -312,10 +312,10 @@ lavap tx pairing stake-provider "COS5T" \
     --from "my_account_name" \
     --provider-moniker "your-moniker" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 ## Step 5: Verify stake
@@ -343,7 +343,7 @@ lavap query pairing account-info \
 # Example: seeing all relevant information for an account
 # lavap query pairing account-info \
 # lava@1e4vghfjertxq25l2vv56egkfkvdjk90t0c667v \
-# --node https://public-rpc-mainnet.lavanet.xyz:443/rpc/
+# --node https://public-rpc-testnet2.lavanet.xyz:443/rpc/
 
 # Expected output:
 # --------------------------------------------
@@ -360,7 +360,7 @@ lavap query pairing account-info \
 #### Parameter Descriptions (with examples):
 
 - **`provider_address`** - The public address of the provider beginning with the lava@ prefix. Examples: **`lava@1e4vghfjertxq25l2vv56egkfkvdjk90t0c667v`**
-- **`LAVA_RPC_NODE`** - An RPC node for Lava. This can be omitted if the current node has already joined the Lava network. Example: **`https://public-rpc-mainnet.lavanet.xyz:443/rpc/`**
+- **`LAVA_RPC_NODE`** - An RPC node for Lava. This can be omitted if the current node has already joined the Lava network. Example: **`https://public-rpc-testnet2.lavanet.xyz:443/rpc/`**
 
 
 Another useful command to check all providers for a specific chain:
@@ -372,7 +372,7 @@ lavap query pairing providers \
 # Example: checking if your account is a paired provider for the ETH1 network,
 # lavap query pairing providers \
 # ETH1 \
-# --node https://public-rpc-mainnet.lavanet.xyz:443/rpc/
+# --node https://public-rpc-testnet2.lavanet.xyz:443/rpc/
 
 # Expected output:
 # List of all providers, and your provider should be on of them
@@ -381,7 +381,7 @@ lavap query pairing providers \
 #### Parameter Descriptions (with examples):
 
 - **`NETWORK_NAME`** - The ID of the chain. Examples: **`COS4`** or **`FTM250`**. To get the full list of available chains use: `lavap query spec show-all-chains --node {LAVA_RPC_NODE}`.
-- **`LAVA_RPC_NODE`** - An RPC node for Lava. This can be omitted if the current node has already joined the Lava network. Example: **`https://public-rpc-mainnet.lavanet.xyz:443/rpc/`**
+- **`LAVA_RPC_NODE`** - An RPC node for Lava. This can be omitted if the current node has already joined the Lava network. Example: **`https://public-rpc-testnet2.lavanet.xyz:443/rpc/`**
 
 :::info 
 Note, a new provider stake is only applied on the start of the next epoch. Currently, an epoch is defined as 30 blocks. With block time of 30sec, in the worst case scenario the stake will be applied after 15min.
@@ -401,7 +401,7 @@ Now that your provider is staked you can repeat the command, but this time, with
 lavap test rpcprovider --from {WALLET}
 
 # Example: checking if your provider, is staked correctly and listening on all staked services
-# lavap test rpcprovider --from provider1_us --node https://public-rpc-mainnet.lavanet.xyz:443/rpc/
+# lavap test rpcprovider --from provider1_us --node https://public-rpc-testnet2.lavanet.xyz:443/rpc/
 
 # Expected output:
 # ...logs...
@@ -421,7 +421,7 @@ lavap test rpcprovider --from {WALLET}
 ```bash
 lavap test rpcprovider {PROVIDER_ADDRESS}
 # Example: checking if your provider, is staked correctly and listening on all staked services
-# lavap test rpcprovider lava@myprovidersbech32pubaddress --node https://public-rpc-mainnet.lavanet.xyz:443/rpc/
+# lavap test rpcprovider lava@myprovidersbech32pubaddress --node https://public-rpc-testnet2.lavanet.xyz:443/rpc/
 ```
 
 
@@ -451,7 +451,7 @@ TMP_PASSWORD=<your wallet password if you have one>
 TMP_CONFIG_FILE_PATH=<path to your config file>
 TMP_GEO_LOCATION=<the geolocation you wish to use>
 TMP_PROVIDER_WALLET_ACCOUNT=<your provider wallet account name>
-TMP_CHAIN_ID=<the lava chain id to run this on> # lava-mainnet-1
+TMP_CHAIN_ID=<the lava chain id to run this on> # lava-testnet-2
 ```
 
 Run the following to create the service file:
@@ -510,10 +510,10 @@ lavap tx pairing unstake-provider [chain-id] {validator} [flags]
 
 - **`--from`** - The account to be used for the provider staking (e.g., **`my_account`**).
 - **`--keyring-backend`** - A keyring-backend of your choosing (e.g., **`test`**).
-- **`--chain-id`** - The chain_id of the network (e.g., **`lava-mainnet-1`**).
+- **`--chain-id`** - The chain_id of the network (e.g., **`lava-testnet-2`**).
 - **`--gas`** - The gas limit for the transaction (e.g., **`"auto"`**).
 - **`--gas-adjustment`** - The gas adjustment factor (e.g., **`"1.5"`**).
-- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-mainnet.lavanet.xyz:443/rpc/`**).
+- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-testnet2.lavanet.xyz:443/rpc/`**).
 
 ### Unstake Examples
 
@@ -524,10 +524,10 @@ lavap tx pairing unstake-provider LAV1 \
    "validator_lava_address" \
     --from "my_account_name" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 #### Unstake with unspecified validator
@@ -536,10 +536,10 @@ lavap tx pairing unstake-provider LAV1 \
 lavap tx pairing unstake-provider LAV1 \
     --from "my_account_name" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 ### Partial Unstake
@@ -567,10 +567,10 @@ Note that the `unbond` command should be used because the proivder unbonds some 
 
 - **`--from`** - The account to be used for the provider staking (e.g., **`my_account`**).
 - **`--keyring-backend`** - A keyring-backend of your choosing (e.g., **`test`**).
-- **`--chain-id`** - The chain_id of the network (e.g., **`lava-mainnet-1`**).
+- **`--chain-id`** - The chain_id of the network (e.g., **`lava-testnet-2`**).
 - **`--gas`** - The gas limit for the transaction (e.g., **`"auto"`**).
 - **`--gas-adjustment`** - The gas adjustment factor (e.g., **`"1.5"`**).
-- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-mainnet.lavanet.xyz:443/rpc/`**).
+- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-testnet2.lavanet.xyz:443/rpc/`**).
 
 ### Unbond Examples
 
@@ -581,10 +581,10 @@ lavap tx dualstaking unbond "validator_lava_address" \
     2010ulava \ 
     --from "my_account_name" \
     --keyring-backend "test" \
-    --chain-id "lava-mainnet-1" \
+    --chain-id "lava-testnet-2" \
     --gas="auto" \
     --gas-adjustment "1.5" \
-    --node "https://public-rpc-mainnet.lavanet.xyz:443/rpc/"
+    --node "https://public-rpc-testnet2.lavanet.xyz:443/rpc/"
 ```
 
 ## Step 10: Modify stake entry
@@ -611,10 +611,10 @@ Note that most changes are defined using the optional flags listed below.
 
 - **`--from`** - The account to be used for the provider staking (e.g., **`my_account`**).
 - **`--keyring-backend`** - A keyring-backend of your choosing (e.g., **`test`**).
-- **`--chain-id`** - The chain_id of the network (e.g., **`lava-mainnet-1`**).
+- **`--chain-id`** - The chain_id of the network (e.g., **`lava-testnet-2`**).
 - **`--gas`** - The gas limit for the transaction (e.g., **`"auto"`**).
 - **`--gas-adjustment`** - The gas adjustment factor (e.g., **`"1.5"`**).
-- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-mainnet.lavanet.xyz:443/rpc/`**).
+- **`--node`** - A RPC node for Lava (e.g., **`https://public-rpc-testnet2.lavanet.xyz:443/rpc/`**).
 - **`--amount`** - Provider stake amount. This is equivalent to the stake modifications TXs, so the `--validator` flag should be considered.
 - **`--delegate-commission`** - Provider delegation commission (optional).
 - **`--delegate-limit`** - Provider delegation limit (optional).
@@ -675,8 +675,8 @@ lavap tx pairing unstake-provider "{NETWORK_NAME}" \\
 # lavap tx pairing unstake-provider ETH1 \\
 # --from my_account_name \\
 # --keyring-backend "test" \\
-# --chain-id "lava-mainnet-1" \\
-# --node <https://public-rpc-mainnet.lavanet.xyz:443/rpc/>
+# --chain-id "lava-testnet-2" \\
+# --node <https://public-rpc-testnet2.lavanet.xyz:443/rpc/>
 
 # Expected output:
 # INF Server listening Address=[::]:LISTEN_PORT
