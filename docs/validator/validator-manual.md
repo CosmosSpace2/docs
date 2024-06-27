@@ -11,7 +11,7 @@ Running as a validator requires a Lava Node running, Please refer to [our guide 
 Running as a validator requires a Lava Node running, Please refer to [our guide for joining **Testnet**](testnet) for details.
 
 ### 2. Prepare an account & Fund it {#account}
-If you don't have an account (wallet) on Lava yet, Refer to [creating new accounts](wallet#account) and the [faucet](faucet). 
+If you don't have an account (wallet) on Lava yet, Refer to [creating new accounts](wallet#account) and the [faucet](faucet) (for testnet tokens). 
 
 ### 3. Stake & start validating {#stake}
 
@@ -59,7 +59,7 @@ $current_lavad_binary tx staking create-validator \
     --amount="50000000ulava" \
     --pubkey=$($current_lavad_binary tendermint show-validator --home "$HOME/.lava/") \
     --moniker="<<moniker_node>>" \
-    --chain-id=lava-mainnet-1 \
+    --chain-id=<lava-mainnet-1/lava-testnet-2> \
     --commission-rate="0.10" \
     --commission-max-rate="0.20" \
     --commission-max-change-rate="0.01" \

@@ -436,7 +436,7 @@ const sidebars = {
         },
         {
           type: 'category', 
-          label: 'Join testnet',
+          label: 'Join Testnet',
           collapsible: true,
           collapsed: true,
           link: {

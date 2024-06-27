@@ -20,7 +20,7 @@ The key distinction between the two is that `lavavisor wrap` validates Golang in
 
 :::tip
 
-Please make sure you are using the right `chainId` this document was written during testnet, and the active `chainId` was `lava-testnet-2` at time of composition.
+Please make sure you are using the right `chainId` this document was written during testnet, and the active `chainId` was `lava-mainnet-1` at time of composition.
 
 :::
 
